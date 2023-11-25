@@ -74,7 +74,7 @@ def edit(id):
                          (title, content, id))
             conn.commit()
             conn.close()
-            return redirect(url_for('index'))
+            return redirect(url_for('post', id=id))
 
     return render_template('edit.html', post=post)
 
@@ -86,6 +86,12 @@ def delete(id):
     conn.commit()
     conn.close()
     flash('"{}" was successfully deleted!'.format(post['title']))
-    return redirect(url_for('index'))
+    #return redirect(url_for('index'))
+    return ''
 
 
+@app.route('/<int:id>/post/')
+def post(id):
+    post = get_post(id)
+
+    return render_template('snip_post.html.j2', post=post)

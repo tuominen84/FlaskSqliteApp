@@ -1,0 +1,8 @@
+
+        <div class='post' id="post{{ post['id'] }}">
+            <p>{{ post['created'] }}</p>
+            <h2>{{ post['title'] }}</h2>
+            <p>{{ post['content'] }}</p>
+            {# <a href="{{ url_for('edit', id=post['id']) }}">Edit</a> #}
+            <button type="button" class="btn btn-primary" hx-get="{{ url_for('edit', id=post['id']) }}" hx-target="#post{{ post['id'] }}" hx-swap=innerHTML>Edit</button>
+        </div>
