@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Posts {% endblock %}</h1>
-    {% for post in posts %}
-      {% include 'snip_post.html.j2' %}
-    {% endfor %}
+<main class="container">
+  <h1>{% block title %} Posts {% endblock %}</h1>
+  {% for post in posts %}
+    {% include 'snip_post.html.j2' %}
+  {% endfor %}
+</main>
 {% endblock %}
 
